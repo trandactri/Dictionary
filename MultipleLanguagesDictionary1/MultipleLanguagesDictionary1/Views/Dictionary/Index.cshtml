@@ -1,0 +1,12 @@
+@{
+    ViewData["Title"] = "Index";
+}
+
+@ViewBag.data
+
+<div>
+    @foreach (var item in ViewBag.data)
+    {
+        @item.definition
+    }
+</div>
