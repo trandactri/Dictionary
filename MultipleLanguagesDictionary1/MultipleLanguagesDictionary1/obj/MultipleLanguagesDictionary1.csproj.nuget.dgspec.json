@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\.NetProjects\\MultiLangsDictionaryFinal\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1.csproj": {}
+    "C:\\Projects\\.NetProjects\\Dictionary\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\.NetProjects\\MultiLangsDictionaryFinal\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1.csproj": {
+    "C:\\Projects\\.NetProjects\\Dictionary\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\.NetProjects\\MultiLangsDictionaryFinal\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1.csproj",
+        "projectUniqueName": "C:\\Projects\\.NetProjects\\Dictionary\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1.csproj",
         "projectName": "MultipleLanguagesDictionary1",
-        "projectPath": "C:\\Projects\\.NetProjects\\MultiLangsDictionaryFinal\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1.csproj",
+        "projectPath": "C:\\Projects\\.NetProjects\\Dictionary\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1.csproj",
         "packagesPath": "C:\\Users\\Tri Dac\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\.NetProjects\\MultiLangsDictionaryFinal\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\obj\\",
+        "outputPath": "C:\\Projects\\.NetProjects\\Dictionary\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tri Dac\\AppData\\Roaming\\NuGet\\NuGet.Config",

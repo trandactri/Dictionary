@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using App.Areas.Identity.Models.AccountViewModels;
+using App.Data;
 using App.ExtendMethods;
 using App.Models;
 using App.Utilities;
@@ -40,7 +41,7 @@ namespace App.Areas.Identity.Controllers
         }
 
         // GET: /Account/Login
-        [HttpGet("/login/")]
+        [HttpGet]
         [AllowAnonymous]
         public IActionResult Login(string? returnUrl = null)
         {
@@ -50,7 +51,7 @@ namespace App.Areas.Identity.Controllers
 
         //
         // POST: /Account/Login
-        [HttpPost("/login/")]
+        [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model, string? returnUrl = null)
@@ -130,6 +131,7 @@ namespace App.Areas.Identity.Controllers
 
                 if (result.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(user, RoleName.Member);
                     _logger.LogInformation("Đã tạo user mới.");
 
 
@@ -638,7 +640,7 @@ namespace App.Areas.Identity.Controllers
         //     }
         // }
 
-        [Route("/accessdenied/")]
+        // [Route("/accessdenied/")]
         [AllowAnonymous]
         public IActionResult AccessDenied()
         {

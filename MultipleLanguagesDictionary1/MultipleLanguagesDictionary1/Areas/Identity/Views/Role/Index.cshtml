@@ -22,10 +22,10 @@
         <tr>
             <td>
                 <p>@role.Name</p>
-                @foreach (var claim in @role.Claims)
+                @* @foreach (var claim in @role.Claims)
                 {
                     <small>@claim</small><br>
-                }
+                } *@
             </td>
             <td>
                 <a class="btn btn-success btn-sm" asp-action="Edit" asp-route-roleid="@role.Id">Cập nhật</a>

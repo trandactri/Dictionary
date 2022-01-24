@@ -1,15 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using App.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MultipleLanguagesDictionary1.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Diagnostics;
-using System.Net;
 
 namespace MultipleLanguagesDictionary1.Controllers
 {
-    [Authorize(Roles = RoleName.Administrator)]
+    [Authorize(Roles = RoleName.Member)]
+    [Route("/Dictionary/[action]")]
     public class DictionaryController : Controller
     {
         private readonly ILogger<DictionaryController> _logger;
@@ -19,38 +22,91 @@ namespace MultipleLanguagesDictionary1.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Index(string? word)
         {
-            string path = "https://api.dictionaryapi.dev/api/v2/entries/en/dog";
-            object dictionary = getDictionary(path);
+            try
+            {
+                if (word == "" || word == null || word == " ")
+                {
+                    string path = "https://api.dictionaryapi.dev/api/v2/entries/en/hello";
 
-            // object dictionary = (Array)getDictionary(path);
+                    object dictionary = getDictionary(path);
 
-            // JObject jObject = JObject.Parse(dictionary.ToString());
+                    JArray jArray = JArray.Parse(dictionary.ToString());
 
-            // JArray jArray = JArray.Parse(dictionary.ToString());
+                    IList<Dictionary> dictionaries = JsonConvert.DeserializeObject<IList<Dictionary>>(jArray.ToString());
 
-            // ViewBag.data = jObject["meanings"];
+                    var meanings = dictionaries[0].meanings;
 
-            var value = JArray.Parse(dictionary.ToString()).Children()["meanings"][0]["definitions"][0]["definition"].First();
+                    var countDic = dictionaries.Count();
 
-            ViewBag.data = value;
+                    var countPart = dictionaries[0].meanings.Select(s => s.partOfSpeech).Count();
+                    ViewBag.countPart = countPart;
 
-            return View();
+                    ViewBag.data = dictionaries;
+
+                    ViewBag.mean = meanings;
+
+                    ViewBag.count = countDic;
+
+                    return View();
+                }
+                else
+                {
+                    string path = "https://api.dictionaryapi.dev/api/v2/entries/en/hello";
+                    string replace = path.Replace("hello", word);
+                    object dictionary = getDictionary(replace);
+
+                    JArray jArray = JArray.Parse(dictionary.ToString());
+
+                    IList<Dictionary> dictionaries = JsonConvert.DeserializeObject<IList<Dictionary>>(jArray.ToString());
+
+                    var meanings = dictionaries[0].meanings;
+
+                    var countDic = dictionaries.Count();
+
+                    var countPart = dictionaries[0].meanings.Select(s => s.partOfSpeech).Count();
+                    ViewBag.countPart = countPart;
+
+                    ViewBag.data = dictionaries;
+
+                    ViewBag.mean = meanings;
+
+                    ViewBag.count = countDic;
+                    return View();
+                }
+            }catch(JsonReaderException e){
+                ViewData["data"] = "null";
+                ViewData["mean"] = "null";
+                return View();
+            }
         }
 
         public object getDictionary(string path)
         {
-            
-            using (WebClient webClient = new WebClient())
+            try
             {
-                return JsonConvert.DeserializeObject<object>(
-                    webClient.DownloadString(path)
-                );
+                using (WebClient webClient = new WebClient())
+                {
+                    return JsonConvert.DeserializeObject<object>(
+                        webClient.DownloadString(path)
+                    );
+                }
+            }
+            catch (WebException e)
+            {
+                return RedirectToAction("Index", "Dictionary");
             }
 
         }
 
+        public string getWord(string word)
+        {
+            string path = "https://api.dictionaryapi.dev/api/v2/entries/en/word";
+            string replace = path.Replace("word", word);
+            return replace;
+        }
 
     }
 }

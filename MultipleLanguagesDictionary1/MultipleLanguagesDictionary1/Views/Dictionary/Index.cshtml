@@ -1,12 +1,149 @@
+@using Newtonsoft.Json.Linq
 @{
     ViewData["Title"] = "Index";
+    var dictionaries = ViewBag.data;
+    var array = ViewBag.mean;
+    var countPart = ViewBag.countPart;
+    int i = 0;
+    int c = 0;
+
 }
+<link rel="stylesheet" href="~/css/home.css">
 
-@ViewBag.data
+<body>
 
-<div>
-    @foreach (var item in ViewBag.data)
-    {
-        @item.definition
-    }
-</div>
+    @* <form asp-action="Index" method="get" asp-controller="Dictionary">
+        <input type="text" required name="word" id="word">
+        <input type="submit" value="Submit">
+        </form>
+
+        <div>
+        @if (ViewData["data"] == "null" && ViewData["mean"] == "null")
+        {
+        <h1>Sorry, we dont know this word!, please type another word!</h1>
+        }
+        else
+        {
+        @foreach (var item in ViewBag.data)
+        {
+
+        if (i == 0)
+        {
+        <h1>@item.word</h1>
+        <div>
+        [@item.phonetic]
+        </div>
+        <div>
+        @item.origin
+        </div>
+        }
+        i++;
+        }
+        <hr>
+
+        @foreach (var arr in ViewBag.mean)
+        {
+        <h5>@arr.partOfSpeech</h5>
+        @foreach (var value in arr.definitions)
+        {
+        <h6 style="margin-left: 50px;">@value.definition</h6>
+        }
+        }
+
+        }
+        </div> *@
+
+    <div class="text-center">
+        <div class="dictionaryWrapper">
+            <h1>Tra từ điển</h1>
+            <form asp-action="Index" asp-controller="Dictionary" method="get">
+                <div class="row search">
+                    
+                    <div class="col-md-10 row">
+                        <div class="col-md-9 offset-md-2">
+                            <input type="text" placeholder="Search a word" required name="word" id="word">
+                            <i class="dictionaryIcon fas fa-search"></i>
+                            <span class="material-icons">close</span>
+                        </div>
+                        <div class="col-md-1">
+                            <button class="nav-item dropdown btn btn-secondary btn-sm">
+                                <a class="nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown" href="#" role="button"
+                                    aria-haspopup="true" aria-expanded="false">Ngôn ngữ</a>
+                                <div class="dropdown-menu dropdown-menu-right text-right">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-2 searchBtn">
+                        <input type="submit" value="Tìm kiếm" class="btn btn-success">
+                    </div>
+                </div>
+            </form>
+            @if (ViewData["data"] == "null" && ViewData["mean"] == "null")
+            {
+                <p class="info-text">Type any existing word and press enter to get meaning, example, synonyms, etc.</p>
+            }
+            else
+            {
+                <ul>
+                    @foreach (var item in ViewBag.data)
+                    {
+
+                        if (i == 0)
+                        {
+                            <li class="dictionaryWord">
+                                <div class="dictionaryDetails">
+                                    <p id="word">@item.word <span> /@item.phonetic/</span> </p>
+                                    <span>Origin: @item.origin</span>
+                                </div>
+                                <i class="fas fa-volume-up"></i>
+                            </li>
+                            i++;
+                        }
+                    }
+                    <!-- Content - Definition  -->
+                <div class="dictionaryContent">
+                        @foreach (var arr in ViewBag.mean)
+                        {
+                            <li class="dictionaryDefinition">
+                                <div class="details">
+                                    <h5>@arr.partOfSpeech</h5>
+                                    @foreach (var value in arr.definitions)
+                                    {
+                                        <h4 style="margin-left: 50px;"><strong>@value.definition</strong></h4>                                        
+                                    }
+                                </div>
+                            </li>
+                        }
+
+                        <!-- Example  -->
+                    <li class="dictionaryExample">
+                            <div class="details">
+                                <p>Example</p>
+                                <span>hello there, Katie!</span>
+                            </div>
+                        </li>
+
+                        <li class="dictionarySynonyms">
+                            <div class="details">
+                                <p>Synonyms</p>
+                                <div class="list">
+
+                                    <span>glad</span>
+                                    <span>glad</span>
+                                    <span>glad</span>
+                                </div>
+                            </div>
+                        </li>
+
+                    </div>
+                </ul>
+            }
+        </div>
+    </div>
+
+</body>
+<script src="~/js/home.js"></script>
