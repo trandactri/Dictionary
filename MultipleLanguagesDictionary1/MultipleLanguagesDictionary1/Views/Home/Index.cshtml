@@ -1,101 +1,28 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    <!-- int i = 0;
-    var dictionaries = ViewBag.data;
-    var array = ViewBag.mean;
-    var countPart = ViewBag.countPart;
-    int c = 0; -->
 }
-@* <link rel="stylesheet" href="~/css/home.css">
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="~/css/homenew.css">
+</head>
 <body>
-    <!-- <div class="text-center">
-        <div class="dictionaryWrapper">
-            <h1>Dictionary Language</h1>
-            <form asp-action="Index" asp-controller="Home" method="get">
-                <div class="search">
-                    <input type="text" placeholder="Search a word" required> <i
-                        class="dictionaryIcon fas fa-search"></i>
-                    <input type="submit" value="Submit">
-                    <span class="material-icons">close</span>
-                </div>
-            </form> *@
-            @* @if (ViewData["data"] == "null" && ViewData["mean"] == "null")
-            {
-                <p class="info-text">Type any existing word and press enter to get meaning, example, synonyms, etc.</p>
-            }
-            else
-            {
-                <ul>
-                    @foreach (var item in ViewBag.data)
-                    {
-
-                        if (i == 0)
-                        { *@
-                            @* <h1>@item.word</h1>
-                                <div>
-                                [@item.phonetic]
-                                </div>
-                                <div>
-                                @item.origin
-                                </div> *@
-
-                            @* Word *@
-                            @* <li class="dictionaryWord">
-                                <div class="dictionaryDetails">
-                                    <p>@item.word</p>
-                                    <span>adjective /@item.phonetic/</span>
-                                    <span>Origin: @item.origin</span>
-                                </div>
-                                <i class="fas fa-volume-up"></i>
-                            </li>
-                            i++;
-                        }
-                    } *@
-                    @* Content - Definition *@
-                    @* <div class="dictionaryContent">
-                        @foreach (var arr in ViewBag.mean)
-                        {
-                            <li class="dictionaryDefinition">
-                                <div class="details">
-                                    <h5>@arr.partOfSpeech</h5>
-                                    <p>Definition</p>
-                                    @foreach (var value in arr.definitions)
-                                    {
-                                        <h6 style="margin-left: 50px;">@value.definition</h6>
-                                        @* <h6 style="margin-left: 50px;">@value.synonyms</h6> *@
-                                        @* <span>Used as a greeting or to begin a phone conversation.</span> *@
-                                    @* } *@
-                                @* </div>
-                            </li> *@
-                        @* } *@ 
-
-                        @* Example *@
-                        @* <li class="dictionaryExample">
-                            <div class="details">
-                                <p>Example</p>
-                                <span>hello there, Katie!</span>
-                            </div>
-                        </li> *@
-                        <!-- synonyms -->
-                    <!-- <li class="dictionarySynonyms">
-                            <div class="details">
-                                <p>Synonyms</p>
-                                <div class="list">
-
-                                    <span>glad</span>
-                                    <span>glad</span>
-                                    <span>glad</span>
-                                </div>
-                            </div>
-                        </li>
-
-                    </div>
-                </ul>
-            @* } *@
-
+    <div class="banner">
+        <div class="content">
+            <h1>Từ Điển Đa Ngôn Ngữ</h1>
+            <p>Từ điển đa ngôn ngữ mang đến cho người dùng thông tin của hàng loạt từ ngữ đến từ nhiều ngôn ngữ khác 
+                .<br> Bắt đầu tra từ của bạn !!! </p>
+            <div class="bannerButton">
+                <a type="button" asp-action="Index" asp-controller="Dictionary" ><span></span>Từ điển</a>
+                <a type="button" asp-action="Translate" asp-controller="Dictionary"><span></span>Dịch từ</a>
+            </div>
         </div>
-    </div> --> 
-
-    @* <script src="~/js/home.js"></script>
-</body> *@
+    </div> 
+</body>
+</html>

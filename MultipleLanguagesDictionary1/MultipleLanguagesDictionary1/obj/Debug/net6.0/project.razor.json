@@ -16313,6 +16313,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Projects\\.NetProjects\\Dictionary\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\Views\\Dictionary\\Translate.cshtml",
+      "TargetPath": "Views\\Dictionary\\Translate.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Projects\\.NetProjects\\Dictionary\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\Areas\\Identity\\Views\\Role\\Delete.cshtml",
       "TargetPath": "Areas\\Identity\\Views\\Role\\Delete.cshtml",
       "FileKind": "mvc"

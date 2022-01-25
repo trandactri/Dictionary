@@ -29,6 +29,13 @@ p{
     text-align: center;
 }
 
+.dictionaryWrapper h2{
+    font-size: 40px;
+    font-weight: 500;
+    text-align: left;
+    color: #989898;
+}
+
 .dictionaryWrapper .search {
     margin: 35px 0 18px;
     position: relative;
@@ -64,13 +71,13 @@ p{
 }
 
 .search i{
-    left: 190px;
+    left: 280px;
     pointer-events: none;
     font-size: 20px;
 }
 
 .search span{
-    right : 470px;
+    right : 580px;
     cursor: pointer;
     font-size: 18px;
     display: none;
@@ -186,7 +193,10 @@ ul .dictionaryContent::-webkit-scrollbar{
 }
 
 .searchBtn {
-    transform:translateX(-140px);
+    transform:translateX(-180px);
+    text-align: center;
+    width: 15%;
+    display: inline-flex;
 }
 
 .badge {
@@ -194,3 +204,61 @@ ul .dictionaryContent::-webkit-scrollbar{
     font-size: 1.5rem;
     margin: 10px;
 }
+
+.card-text {
+    border-bottom: 2px solid #7e7e7e;
+}
+
+.card-title::first-letter {
+    text-transform: capitalize;
+}
+
+@media only screen and (max-width: 1002px) {
+    /* For Tablet phones: */
+    .searchBtn{
+      width: 100%;
+      flex-direction: column;
+      padding: 0 105px 0 175px;
+    }
+
+    .search i{
+        top:30%;
+        left:17%;
+    }
+
+    span.material-icons{
+        top: 20%
+    }
+    select#exampleSelect1{
+        margin-left: 170px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    .search span{
+        right: 30%;
+        top:30%;
+    }
+  }
+  
+@media only screen and (max-width: 777px) {
+    /* For phones: */
+    .searchBtn{
+      width: 100%;
+      flex-direction: column;
+      margin: 0 70px 0 50px;
+    }
+
+    span.material-icons{
+        top: 18%
+    }
+
+    .search i{
+        top:18%;
+        left:5%;
+    }
+
+    .search span{
+        right: 10%;
+    }
+  }

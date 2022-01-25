@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qKcyywXToT8wTkLRpz5KEXQynRFgy6LWqlHZ89w6T4c=",
+  "Hash": "FqDuVz32JB78/r9zH/gJz7GbrM2denngYpxLm+HiOm4=",
   "Source": "MultipleLanguagesDictionary1",
   "BasePath": "_content/MultipleLanguagesDictionary1",
   "Mode": "Default",
@@ -68,6 +68,23 @@
       "OriginalItemSpec": "wwwroot\\css\\home.css"
     },
     {
+      "Identity": "C:\\Projects\\.NetProjects\\Dictionary\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\wwwroot\\css\\homenew.css",
+      "SourceId": "MultipleLanguagesDictionary1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\.NetProjects\\Dictionary\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\wwwroot\\",
+      "BasePath": "_content/MultipleLanguagesDictionary1",
+      "RelativePath": "css/homenew.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\homenew.css"
+    },
+    {
       "Identity": "C:\\Projects\\.NetProjects\\Dictionary\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\wwwroot\\css\\site.css",
       "SourceId": "MultipleLanguagesDictionary1",
       "SourceType": "Discovered",
@@ -102,12 +119,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Projects\\.NetProjects\\Dictionary\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\wwwroot\\js\\home.js",
+      "Identity": "C:\\Projects\\.NetProjects\\Dictionary\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\wwwroot\\js\\homeNew.js",
       "SourceId": "MultipleLanguagesDictionary1",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Projects\\.NetProjects\\Dictionary\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\wwwroot\\",
       "BasePath": "_content/MultipleLanguagesDictionary1",
-      "RelativePath": "js/home.js",
+      "RelativePath": "js/homeNew.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -116,7 +133,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\home.js"
+      "OriginalItemSpec": "wwwroot\\js\\homeNew.js"
     },
     {
       "Identity": "C:\\Projects\\.NetProjects\\Dictionary\\MultipleLanguagesDictionary1\\MultipleLanguagesDictionary1\\wwwroot\\js\\site.js",

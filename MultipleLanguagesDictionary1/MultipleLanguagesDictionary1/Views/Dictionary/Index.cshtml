@@ -1,11 +1,9 @@
-@using Newtonsoft.Json.Linq
 @{
     ViewData["Title"] = "Index";
     var dictionaries = ViewBag.data;
     var array = ViewBag.mean;
     var countPart = ViewBag.countPart;
     int i = 0;
-    int c = 0;
 
 }
 <link rel="stylesheet" href="~/css/home.css">
@@ -18,21 +16,12 @@
                 <div class="row search">
 
                     <div class="col-md-10 row">
-                        <div class="col-md-8 offset-md-2">
+                        <div class="col-md-7 offset-md-3">
                             <input type="text" placeholder="Search a word" required name="word" id="word">
                             <i class="dictionaryIcon fas fa-search"></i>
                             <span class="material-icons">close</span>
                         </div>
                         <div class="col-md-2">
-                            @* <button class="nav-item dropdown btn btn-secondary btn-sm">
-                                <a class="nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown" href="#"
-                                role="button" aria-haspopup="true" aria-expanded="false">Ngôn ngữ</a>
-                                <div class="dropdown-menu dropdown-menu-right text-right">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                                </button> *@
                             <select class="form-select" id="exampleSelect1" name="lang">
                                 <option value="en">ENG</option>
                                 <option value="fr">FRA</option>
@@ -41,18 +30,22 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-2 searchBtn">
-                        <input type="submit" value="Tìm kiếm" class="btn btn-success">
+                    <div class="searchBtn">
+                        <button type="submit" class="btn btn-success">Tìm kiếm</button>
                     </div>
                 </div>
             </form>
             @if (ViewData["data"] == "null" && ViewData["mean"] == "null")
             {
-                <p class="info-text">Type any existing word and press enter to get meaning, example, synonyms, etc.</p>
+                <div class="col-md-7 offset-md-3">
+                    <h2 class="info-text">Từ này không có trong từ điển, vui lòng tra từ khác!!</h2>
+                </div>
             }
             else if (ViewData["word"] == "null")
             {
-                <h1>Hãy tìm kiếm 1 từ bất kỳ !!</h1>
+                <div class="col-md-7 offset-md-3">
+                    <h2>Hãy tìm kiếm 1 từ bất kỳ !!</h2>
+                </div>
             }
             else
             {
@@ -79,30 +72,16 @@
                 <div class="dictionaryContent">
                         @foreach (var arr in ViewBag.mean)
                         {
-                            @* <li class="dictionaryDefinition">
-                                <div class="details">
-                                <h5>@arr.partOfSpeech</h5>
-                                @foreach (var value in arr.definitions)
-                                {
-                                <h4 style="margin-left: 50px;"><strong>@value.definition</strong></h4>
-                                if (value.example != null)
-                                {
-                                <h6>Ví dụ: @value.example</h6>
-                                <br>
-                                }
-                                }
-                                </div>
-                                </li> *@
                             <div class="card text-white bg-danger mb-3" style="max-width: 100%;">
-                                <div class="card-header text-dark">@arr.partOfSpeech</div>
+                                <h5 class="card-header text-dark">@arr.partOfSpeech</h5>
                                 @foreach (var value in arr.definitions)
                                 {
                                     <div class="card-body">
                                         <h4 class="card-title">@value.definition</h4>
                                         @if (value.example != null)
                                         {
-                                        <p class="card-text">Example: @value.example</p>
-                                        <br>
+                                            <p class="card-text">Example: @value.example</p>
+                                            <br>
                                         }
                                     </div>
                                 }
@@ -123,7 +102,8 @@
                 </ul>
             }
         </div>
+
     </div>
 
 </body>
-<script src="~/js/home.js"></script>
+<script src="~/js/homeNew.js"></script>

@@ -40,14 +40,6 @@ searchInput.addEventListener("keyup", e =>{
     }
 });
 
-volumeIcon.addEventListener("click", ()=>{
-    volumeIcon.style.color = "#4D59FB";
-    audio.play();
-    setTimeout(() =>{
-        volumeIcon.style.color = "#999";
-    }, 800);
-});
-
 removeIcon.addEventListener("click",()=>{
     searchInput.value=""
     searchInput.focus();

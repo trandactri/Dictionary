@@ -24,7 +24,6 @@ namespace MultipleLanguagesDictionary1.Controllers
         [HttpGet]
         public IActionResult Index(string? word, string? lang = "en")
         {
-            // string replace = HttpContext.Session.GetString("replace");
             try
             {
                 if (!string.IsNullOrEmpty(word))
@@ -73,6 +72,12 @@ namespace MultipleLanguagesDictionary1.Controllers
                 return View();
             }
         }
+
+        public IActionResult Translate()
+        {
+            return View();
+        }
+        
 
         public object getDictionary(string path)
         {
