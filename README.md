@@ -1,15 +1,15 @@
 ﻿# MultiLang Dictionary
 <p>Mở bằng Visual Studio 2019 hoặc 2022</p>
 <p>Khởi động SQLServer</p>
-Sửa connectionString trong appsettings.json theo cấu hình 
-Khởi động web ( khuyến khích chạy trên Chrome )
-Authorize annotation trong Areas/Database/Controllers cho vào comment
-Nhập đường dẫn database-manage/index
-Click vào CreateDb
-Click vào SeedData
+<p>Sửa connectionString trong appsettings.json theo cấu hình </p>
+<p>Khởi động web ( khuyến khích chạy trên Chrome )</p>
+<p>Authorize annotation trong Areas/Database/Controllers cho vào comment</p>
+<p>Nhập đường dẫn database-manage/index</p>
+<p>Click vào CreateDb</p>
+<p>Click vào SeedData</p>
 # Đăng nhập bằng User:
-Đăng ký tài khoản
+<p>Đăng ký tài khoản</p>
 Đăng nhập
 # Đăng nhập bằng Admin:
-Tài khoản: admin
+<p>Tài khoản: admin</p>
 Mật khẩu: admin123
