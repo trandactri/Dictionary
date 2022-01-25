@@ -12,7 +12,6 @@ using Newtonsoft.Json.Linq;
 namespace MultipleLanguagesDictionary1.Controllers
 {
     [Authorize(Roles = RoleName.Member)]
-    [Route("/Dictionary/[action]")]
     public class DictionaryController : Controller
     {
         private readonly ILogger<DictionaryController> _logger;
@@ -23,60 +22,52 @@ namespace MultipleLanguagesDictionary1.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(string? word)
+        public IActionResult Index(string? word, string? lang = "en")
         {
+            // string replace = HttpContext.Session.GetString("replace");
             try
             {
-                if (word == "" || word == null || word == " ")
+                if (!string.IsNullOrEmpty(word))
                 {
                     string path = "https://api.dictionaryapi.dev/api/v2/entries/en/hello";
-
-                    object dictionary = getDictionary(path);
-
-                    JArray jArray = JArray.Parse(dictionary.ToString());
-
-                    IList<Dictionary> dictionaries = JsonConvert.DeserializeObject<IList<Dictionary>>(jArray.ToString());
-
-                    var meanings = dictionaries[0].meanings;
-
-                    var countDic = dictionaries.Count();
-
-                    var countPart = dictionaries[0].meanings.Select(s => s.partOfSpeech).Count();
-                    ViewBag.countPart = countPart;
-
-                    ViewBag.data = dictionaries;
-
-                    ViewBag.mean = meanings;
-
-                    ViewBag.count = countDic;
-
-                    return View();
-                }
-                else
-                {
-                    string path = "https://api.dictionaryapi.dev/api/v2/entries/en/hello";
-                    string replace = path.Replace("hello", word);
+                    string replace = path.Replace("en/hello", lang + "/" + word);
                     object dictionary = getDictionary(replace);
 
                     JArray jArray = JArray.Parse(dictionary.ToString());
 
-                    IList<Dictionary> dictionaries = JsonConvert.DeserializeObject<IList<Dictionary>>(jArray.ToString());
+                    IList<Dictionary> dictionaries = JsonConvert.DeserializeObject<IList<Dictionary>>(dictionary.ToString());
 
                     var meanings = dictionaries[0].meanings;
 
                     var countDic = dictionaries.Count();
 
                     var countPart = dictionaries[0].meanings.Select(s => s.partOfSpeech).Count();
+
+                    var syn = dictionaries[0].meanings[0].definitions[0].synonyms;
+
                     ViewBag.countPart = countPart;
 
                     ViewBag.data = dictionaries;
 
                     ViewBag.mean = meanings;
 
+                    ViewBag.syn = syn;
+                    
+                    ViewBag.countSyn = syn!.ToList().Count();
+
                     ViewBag.count = countDic;
+
+                    ViewBag.lang = lang;
                     return View();
                 }
-            }catch(JsonReaderException e){
+                else
+                {
+                    ViewData["word"] = "null";
+                    return View();
+                }
+            }
+            catch (JsonReaderException e)
+            {
                 ViewData["data"] = "null";
                 ViewData["mean"] = "null";
                 return View();
@@ -96,15 +87,15 @@ namespace MultipleLanguagesDictionary1.Controllers
             }
             catch (WebException e)
             {
-                return RedirectToAction("Index", "Dictionary");
+                return RedirectToAction("Index", "Home");
             }
 
         }
 
-        public string getWord(string word)
+        public string getWord(string word, string? lang = "en")
         {
             string path = "https://api.dictionaryapi.dev/api/v2/entries/en/word";
-            string replace = path.Replace("word", word);
+            string replace = path.Replace("en/word", lang + "/" + word);
             return replace;
         }
 

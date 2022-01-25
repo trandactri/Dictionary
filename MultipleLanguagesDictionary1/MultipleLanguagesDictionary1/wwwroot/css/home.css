@@ -175,14 +175,22 @@ ul .dictionaryContent::-webkit-scrollbar{
     text-transform: capitalize;
 }
 
-button.nav-item.dropdown.btn.btn-secondary.btn-sm {
-    left: -150px;
-    padding-bottom: 10px;
-    border-radius: 0;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+#exampleSelect1 {
+    margin-top: 2px;
+    padding-bottom: 8px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    margin-right: 50px;
+    transform:translateX(-170px);
+    font-size: 22px;
 }
 
 .searchBtn {
-    transform:translateX(-80px);
+    transform:translateX(-140px);
+}
+
+.badge {
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin: 10px;
 }
