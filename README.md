@@ -9,7 +9,7 @@
 <p>Click vào SeedData</p>
 # Đăng nhập bằng User:
 <p>Đăng ký tài khoản</p>
-Đăng nhập
+<p>Đăng nhập</p>
 # Đăng nhập bằng Admin:
 <p>Tài khoản: admin</p>
-Mật khẩu: admin123
+<p>Mật khẩu: admin123</p>

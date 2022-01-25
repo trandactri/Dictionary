@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -19,8 +21,11 @@
             <p>Từ điển đa ngôn ngữ mang đến cho người dùng thông tin của hàng loạt từ ngữ đến từ nhiều ngôn ngữ khác 
                 .<br> Bắt đầu tra từ của bạn !!! </p>
             <div class="bannerButton">
+                @if (!(await AuthorizationService.AuthorizeAsync(User, "ShowAdminMenu")).Succeeded)
+                        {
                 <a type="button" asp-action="Index" asp-controller="Dictionary" ><span></span>Từ điển</a>
                 <a type="button" asp-action="Translate" asp-controller="Dictionary"><span></span>Dịch từ</a>
+                        }
             </div>
         </div>
     </div> 
