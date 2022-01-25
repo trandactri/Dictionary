@@ -1,6 +1,6 @@
 ﻿# MultiLang Dictionary
-Mở bằng Visual Studio 2019 hoặc 2022
-Khởi động SQLServer
+<p>Mở bằng Visual Studio 2019 hoặc 2022</p>
+<p>Khởi động SQLServer</p>
 Sửa connectionString trong appsettings.json theo cấu hình 
 Khởi động web ( khuyến khích chạy trên Chrome )
 Authorize annotation trong Areas/Database/Controllers cho vào comment
